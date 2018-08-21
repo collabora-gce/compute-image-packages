@@ -25,6 +25,7 @@
 #include <regex>
 
 #include "oslogin_utils.h"
+#include "../compat.h"
 
 using std::string;
 
@@ -267,7 +268,7 @@ bool ValidatePasswd(struct passwd* result, BufferManager* buf,
     }
   }
   if (strlen(result->pw_shell) == 0) {
-    if (!buf->AppendString("/bin/bash", &result->pw_shell, errnop)) {
+    if (!buf->AppendString(DEFAULT_SHELL, &result->pw_shell, errnop)) {
       return false;
     }
   }
