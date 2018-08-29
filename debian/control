@@ -4,7 +4,6 @@ Priority: optional
 Maintainer: Google Cloud Team <gc-team@google.com>
 Build-Depends: debhelper (>= 11),
                dh-python,
-               dh-systemd (>= 1.5),
                python-all,
                python-setuptools,
                python3-all,
@@ -30,7 +29,6 @@ Depends: ${misc:Depends},
          python-google-compute-engine (= ${source:Version}),
          python3-google-compute-engine (= ${source:Version}),
          system-log-daemon,
-         systemd
 Recommends: google-cloud-sdk, rsyslog
 Provides: irqbalance
 Conflicts: google-compute-engine-jessie,
