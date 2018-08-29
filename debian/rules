@@ -8,9 +8,6 @@ export PYBUILD_SYSTEM=distutils
 %:
 	dh $@ --with python2,python3 --buildsystem=pybuild
 
-override_dh_systemd_start:
-	# Configured in google-compute-engine.postinst instead.
-
 override_dh_python3:
 	dh_python3
 
