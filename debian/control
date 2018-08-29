@@ -28,8 +28,8 @@ Depends: ${misc:Depends},
          ${misc:Depends},
          python-google-compute-engine (= ${source:Version}),
          python3-google-compute-engine (= ${source:Version}),
-         system-log-daemon,
-Recommends: google-cloud-sdk, rsyslog
+         rsyslog | system-log-daemon,
+Recommends: google-cloud-sdk
 Provides: irqbalance
 Conflicts: google-compute-engine-jessie,
            google-compute-engine-init-jessie,
