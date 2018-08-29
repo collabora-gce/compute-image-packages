@@ -45,8 +45,11 @@ Replaces: google-compute-engine-jessie,
           google-config-stretch,
           google-compute-daemon,
           google-startup-scripts
-Description: Google Compute Engine guest environment.
- This package contains scripts, configuration, and systemd init files for features specific to the Google Compute Engine cloud environment.
+Description: Google Compute Engine guest environment
+ This package contains scripts, configuration, and systemd init files for
+ features specific to the Google Compute Engine cloud environment. It manages
+ accounts, clock skew, disk expand, instance setup, network and metadata
+ scripts.
 
 Package: python-google-compute-engine
 Section: python
@@ -59,7 +62,10 @@ Conflicts: google-compute-engine-jessie,
            google-compute-engine-stretch,
            google-compute-daemon,
            google-startup-scripts
-Description: Google Compute Engine python library for Python 2.x.
+Description: Google Compute Engine Python 2.x library
+ Python 2.x library used to setup and manage resources in Google Compute
+ Engine guests machines in a cloud environment. It manages accounts, clock
+ skew, disk expand, instance setup, network and metadata scripts.
 
 Package: python3-google-compute-engine
 Section: python
@@ -72,4 +78,7 @@ Conflicts: google-compute-engine-jessie,
            google-compute-engine-stretch,
            google-compute-daemon,
            google-startup-scripts
-Description: Google Compute Engine python library for Python 3.x.
+Description: Google Compute Engine Python 3.x library
+ Python 3.x library used to setup and manage resources in Google Compute
+ Engine guests machines in a cloud environment. It manages accounts, clock
+ skew, disk expand, instance setup, network and metadata scripts.
