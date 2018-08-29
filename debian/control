@@ -21,11 +21,7 @@ Package: google-compute-engine
 Architecture: all
 Depends: ${misc:Depends},
          google-compute-engine-oslogin,
-         python:any,
-         python3:any,
-         ${python:Depends},
-         ${python3:Depends},
-         ${misc:Depends},
+         python:any | python2:any,
          python-google-compute-engine (= ${source:Version}),
          python3-google-compute-engine (= ${source:Version}),
          rsyslog | system-log-daemon,
@@ -54,7 +50,10 @@ Description: Google Compute Engine guest environment.
 Package: python-google-compute-engine
 Section: python
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends}
+Depends: ${python:Depends}, ${misc:Depends},
+         python-distro | python-distro-info,
+         python-boto,
+         python-pkg-resources,
 Conflicts: google-compute-engine-jessie,
            google-compute-engine-stretch,
            google-compute-daemon,
@@ -64,11 +63,10 @@ Description: Google Compute Engine python library for Python 2.x.
 Package: python3-google-compute-engine
 Section: python
 Architecture: all
-Depends: ${misc:Depends},
+Depends: ${python3:Depends}, ${misc:Depends},
          python3-distro | python3-distro-info,
          python3-boto,
          python3-pkg-resources,
-         python3:any
 Conflicts: google-compute-engine-jessie,
            google-compute-engine-stretch,
            google-compute-daemon,
