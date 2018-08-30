@@ -14,7 +14,7 @@ Build-Depends: debhelper (>= 11),
                python-boto,
                python3-boto,
                python3-distro
-Standards-Version: 3.9.8
+Standards-Version: 4.2.1
 Testsuite: autopkgtest-pkg-python
 Homepage: https://github.com/GoogleCloudPlatform/compute-image-packages
 
