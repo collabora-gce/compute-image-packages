@@ -22,8 +22,6 @@ Package: google-compute-engine
 Architecture: all
 Depends: ${misc:Depends},
          google-compute-engine-oslogin,
-         python:any | python2:any,
-         python-google-compute-engine (= ${source:Version}),
          python3-google-compute-engine (= ${source:Version}),
          rsyslog | system-log-daemon,
 Provides: irqbalance
