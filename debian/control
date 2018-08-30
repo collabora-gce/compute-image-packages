@@ -26,7 +26,6 @@ Depends: ${misc:Depends},
          python-google-compute-engine (= ${source:Version}),
          python3-google-compute-engine (= ${source:Version}),
          rsyslog | system-log-daemon,
-Recommends: google-cloud-sdk
 Provides: irqbalance
 Conflicts: irqbalance
 Description: Google Compute Engine guest environment
