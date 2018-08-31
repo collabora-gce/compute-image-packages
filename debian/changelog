@@ -1,3 +1,25 @@
+google-compute-image-packages (2.8.3-1.1) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix Debian changelog non-parseable entry
+  * Mark debian/rules file as executable
+  * Bump debhelper compatibility level to 11
+  * Remove build dependency on dh-systemd and runtime dependency on systemd
+  * debian/rules: remove deprecated override_dh_systemd_start
+  * Do not depend on a virtual package only
+  * debian/control: Fix runtime dependency on python 2 and 3
+  * Mark package as autopkgtest-able
+  * Remove maintainer scripts
+  * Improve and fix style of packages long and short descriptions
+  * Make some minor fixes in debian/copyright
+  * debian/control: update Conflicts and Replaces relantionships
+  * debian/control: do not provide irqbalance
+  * debian/control: do not recommend google-cloud-sdk
+  * Declare complaince with Debian Policy 4.2.1
+  * Use Python 3 scripts in google-compute-engine package
+
+ -- Lucas Kanashiro <lucas.kanashiro@collabora.co.uk>  Fri, 31 Aug 2018 09:09:48 -0300
+
 google-compute-image-packages (2.8.3-1) stable; urgency=low
 
   * Prevent IP forwarding daemon log spam.
