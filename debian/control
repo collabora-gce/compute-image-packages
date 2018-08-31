@@ -27,10 +27,8 @@ Depends: ${misc:Depends},
 Provides: irqbalance
 Conflicts: irqbalance
 Description: Google Compute Engine guest environment
- This package contains scripts, configuration, and systemd init files for
- features specific to the Google Compute Engine cloud environment. It manages
- accounts, clock skew, disk expand, instance setup, network and metadata
- scripts.
+ This package contains configuration and systemd init files for features
+ specific to the Google Compute Engine cloud environment.
 
 Package: python-google-compute-engine
 Section: python
@@ -40,9 +38,9 @@ Depends: ${python:Depends}, ${misc:Depends},
          python-boto,
          python-pkg-resources,
 Description: Google Compute Engine Python 2.x library
- Python 2.x library used to setup and manage resources in Google Compute
- Engine guests machines in a cloud environment. It manages accounts, clock
- skew, disk expand, instance setup, network and metadata scripts.
+ Python 2.x library used to setup and manage resources in Google Compute Engine
+ guests machines in a cloud environment such as accounts, clock skew, disk
+ expand, instance setup, network and metadata scripts.
 
 Package: python3-google-compute-engine
 Section: python
@@ -52,6 +50,6 @@ Depends: ${python3:Depends}, ${misc:Depends},
          python3-boto,
          python3-pkg-resources,
 Description: Google Compute Engine Python 3.x library
- Python 3.x library used to setup and manage resources in Google Compute
- Engine guests machines in a cloud environment. It manages accounts, clock
- skew, disk expand, instance setup, network and metadata scripts.
+ Python 3.x library used to setup and manage resources in Google Compute Engine
+ guests machines in a cloud environment such as accounts, clock skew, disk
+ expand, instance setup, network and metadata scripts.
