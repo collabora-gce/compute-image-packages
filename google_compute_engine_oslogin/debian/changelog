@@ -1,0 +1,14 @@
+google-compute-engine-oslogin (1.3.0-1+deb10.1) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+  * Split package in other library packages. Now we have those binaries:
+    google-compute-engine-oslogin, libnss-oslogin2, libnss-cache-oslogin2,
+    libpam-google-compute-oslogin.
+  * Update copyright
+  * Install libnss* libraries in /usr/lib
+  * Install PAM library in /lib/security
+  * Add debian/symbols file for each shared library package
+  * Create patch to enable hardening flags in compilation process
+  * Bump debhelper compatibility level to 11
+
+ -- Lucas Kanashiro <lucas.kanashiro@collabora.co.uk>  Mon, 03 Sep 2018 09:52:20 -0300
