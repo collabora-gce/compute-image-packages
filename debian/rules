@@ -4,15 +4,10 @@ export PYBUILD_NAME=google-compute-engine
 export PYBUILD_TEST_PYTEST=1
 export PYBUILD_TEST_ARGS={dir}/google_compute_engine/
 export PYBUILD_SYSTEM=distutils
+export PYBUILD_AFTER_INSTALL=rm -rf debian/python-google-compute-engine/usr/bin
 
 %:
 	dh $@ --with python2,python3 --buildsystem=pybuild
-
-override_dh_python2:
-	dh_python2
-
-	# Remove the Python 2 entry scripts.
-	rm -rf debian/python-google-compute-engine/usr/bin
 
 override_dh_clean:
 	rm -rf google_compute_engine.egg-info
