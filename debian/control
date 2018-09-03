@@ -5,25 +5,25 @@ Maintainer: Google Cloud Team <gc-team@google.com>
 Build-Depends: debhelper (>= 11),
                dh-python,
                python-all,
+               python-boto,
+               python-mock,
+               python-pytest,
                python-setuptools,
                python3-all,
-               python3-setuptools,
-               python-pytest,
-               python3-pytest,
-               python-mock,
-               python-boto,
                python3-boto,
-               python3-distro
+               python3-distro,
+               python3-pytest,
+               python3-setuptools
 Standards-Version: 4.2.1
 Testsuite: autopkgtest-pkg-python
 Homepage: https://github.com/GoogleCloudPlatform/compute-image-packages
 
 Package: google-compute-engine
 Architecture: all
-Depends: ${misc:Depends},
-         google-compute-engine-oslogin,
+Depends: google-compute-engine-oslogin,
          python3-google-compute-engine (= ${source:Version}),
          rsyslog | system-log-daemon,
+         ${misc:Depends}
 Provides: irqbalance
 Conflicts: irqbalance
 Description: Google Compute Engine guest environment
@@ -33,10 +33,11 @@ Description: Google Compute Engine guest environment
 Package: python-google-compute-engine
 Section: python
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends},
+Depends: python-boto,
          python-distro | python-distro-info,
-         python-boto,
          python-pkg-resources,
+         ${misc:Depends},
+         ${python:Depends}
 Description: Google Compute Engine Python 2.x library
  Python 2.x library used to setup and manage resources in Google Compute Engine
  guests machines in a cloud environment such as accounts, clock skew, disk
@@ -45,10 +46,11 @@ Description: Google Compute Engine Python 2.x library
 Package: python3-google-compute-engine
 Section: python
 Architecture: all
-Depends: ${python3:Depends}, ${misc:Depends},
+Depends: python3-boto,
          python3-distro | python3-distro-info,
-         python3-boto,
          python3-pkg-resources,
+         ${misc:Depends},
+         ${python3:Depends}
 Description: Google Compute Engine Python 3.x library
  Python 3.x library used to setup and manage resources in Google Compute Engine
  guests machines in a cloud environment such as accounts, clock skew, disk
