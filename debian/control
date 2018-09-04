@@ -1,9 +1,14 @@
 Source: google-compute-image-packages
 Section: admin
 Priority: optional
-Maintainer: Google Cloud Team <gc-team@google.com>
+Maintainer: Lucas Kanashiro <lucas.kanashiro@collabora.com>
+Uploaders: Google Cloud Team <gc-team@google.com>
 Build-Depends: debhelper (>= 11),
                dh-python,
+               libcurl4-openssl-dev,
+               libjson-c-dev | libjson0-dev,
+               libpam-dev,
+               python3-setuptools,
                python-all,
                python-boto,
                python-mock,
@@ -12,8 +17,7 @@ Build-Depends: debhelper (>= 11),
                python3-all,
                python3-boto,
                python3-distro,
-               python3-pytest,
-               python3-setuptools
+               python3-pytest
 Standards-Version: 4.2.1
 Testsuite: autopkgtest-pkg-python
 Homepage: https://github.com/GoogleCloudPlatform/compute-image-packages
@@ -55,3 +59,38 @@ Description: Google Compute Engine Python 3.x library
  Python 3.x library used to setup and manage resources in Google Compute Engine
  guests machines in a cloud environment such as accounts, clock skew, disk
  expand, instance setup, network and metadata scripts.
+
+Package: google-compute-engine-oslogin
+Architecture: any
+Depends: libnss-cache-oslogin2,
+         libnss-oslogin2,
+         libpam-google-compute-engine-oslogin,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: OS login scripts for Google Compute Engine authentication
+ Contains applications and configurations for using OS Login on Google Compute
+ Engine Virtual Machine Instances.
+
+Package: libnss-cache-oslogin2
+Section: libs
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: NSS cache library for Google Compute Engine
+ Contains libraries, applications and configurations for using OS Login
+ on Google Compute Engine Virtual Machine Instances cache library.
+
+Package: libnss-oslogin2
+Section: libs
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: NSS library for Google Compute Engine
+ Contains libraries, applications and configurations for using OS Login
+ on Google Compute Engine Virtual Machine Instances library.
+
+Package: libpam-google-compute-engine-oslogin
+Section: libs
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: PAM module for Google Compute Engine authentication
+ Contains libraries, applications and configurations for using OS Login
+ on Google Compute Engine Virtual Machine Instances pam library.

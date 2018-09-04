@@ -1,0 +1,9 @@
+libnss_cache_oslogin.so.2 libnss-cache-oslogin2 #MINVER#
+ _nss_cache_oslogin_bsearch2@Base 1.3.0
+ _nss_cache_oslogin_bsearch2_compare@Base 1.3.0
+ _nss_cache_oslogin_endpwent@Base 1.3.0
+ _nss_cache_oslogin_getpwent_r@Base 1.3.0
+ _nss_cache_oslogin_getpwnam_r@Base 1.3.0
+ _nss_cache_oslogin_getpwuid_r@Base 1.3.0
+ _nss_cache_oslogin_setpwent@Base 1.3.0
+ _nss_cache_oslogin_setpwent_path@Base 1.3.0

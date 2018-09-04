@@ -6,9 +6,32 @@ export PYBUILD_TEST_ARGS={dir}/google_compute_engine/
 export PYBUILD_SYSTEM=distutils
 export PYBUILD_AFTER_INSTALL=rm -rf debian/python-google-compute-engine/usr/bin
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+OSLOGIN_DIR=google_compute_engine_oslogin
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
 %:
 	dh $@ --with python2,python3 --buildsystem=pybuild
 
+override_dh_auto_build:
+	dh_auto_build
+	$(MAKE) -C $(OSLOGIN_DIR) all
+
+override_dh_auto_install:
+	dh_auto_install
+	
+	$(MAKE) -C $(OSLOGIN_DIR) \
+		DESTDIR=$(CURDIR)/debian/tmp \
+		NSS_INSTALL_PATH=/usr/lib/$(DEB_HOST_MULTIARCH) \
+		PAM_INSTALL_PATH=/lib/$(DEB_HOST_MULTIARCH)/security \
+		BIN_INSTALL_PATH=/usr/bin install
+	
+	cd $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH) && \
+		ln -s libnss_cache_google-compute-engine-oslogin-1.3.0.so libnss_cache_oslogin.so.2 && \
+		ln -s libnss_google-compute-engine-oslogin-1.3.0.so libnss_oslogin.so.2
+
 override_dh_clean:
-	rm -rf google_compute_engine.egg-info
 	dh_clean
+	rm -rf google_compute_engine.egg-info
