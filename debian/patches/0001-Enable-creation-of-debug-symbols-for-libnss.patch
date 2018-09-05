@@ -1,0 +1,21 @@
+From: Lucas Kanashiro <lucas.kanashiro@collabora.com>
+Date: Wed, 5 Sep 2018 09:26:28 -0300
+Subject: Enable creation of debug symbols for libnss*
+
+---
+ google_compute_engine_oslogin/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/google_compute_engine_oslogin/Makefile b/google_compute_engine_oslogin/Makefile
+index 78816ca..61aac91 100644
+--- a/google_compute_engine_oslogin/Makefile
++++ b/google_compute_engine_oslogin/Makefile
+@@ -23,7 +23,7 @@ CXXFLAGS += -fPIC# -Wall
+ CC ?= gcc
+ PAMFLAGS = $(LDFLAGS) $(INCLUDE_FLAGS) -shared
+ NSSFLAGS = $(LDFLAGS) $(INCLUDE_FLAGS) -shared -Wl,-soname,$(NSS_LIBRARY_SONAME)
+-LIBNSSFLAGS = $(LDFLAGS) -Wall -Wstrict-prototypes -fPIC
++LIBNSSFLAGS = $(LDFLAGS) -Wall -Wstrict-prototypes -fPIC -g
+ LIBNSS_SO_FLAGS = $(LIBNSSFLAGS) -shared -Wl,-soname,$(LIBNSS_CACHE_OSLOGIN_SONAME)
+ 
+ # UTILS
