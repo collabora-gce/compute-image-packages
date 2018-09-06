@@ -30,9 +30,10 @@ Depends: google-compute-engine-oslogin,
          ${misc:Depends}
 Provides: irqbalance
 Conflicts: irqbalance
-Description: Google Compute Engine guest environment
- This package contains configuration and systemd init files for features
- specific to the Google Compute Engine cloud environment.
+Description: Google Compute Engine guest environment for cloud images
+ This package contains a set of scripts, configuration, and systemd init files
+ for features specific to the Google Compute Engine cloud environment. They are
+ used on Google Compute Engine cloud images.
 
 Package: python-google-compute-engine
 Section: python
@@ -42,7 +43,7 @@ Depends: python-boto,
          python-pkg-resources,
          ${misc:Depends},
          ${python:Depends}
-Description: Google Compute Engine Python 2.x library
+Description: Python library for Google Compute Engine interaction
  Python 2.x library used to setup and manage resources in Google Compute Engine
  guests machines in a cloud environment such as accounts, clock skew, disk
  expand, instance setup, network and metadata scripts.
@@ -55,7 +56,7 @@ Depends: python3-boto,
          python3-pkg-resources,
          ${misc:Depends},
          ${python3:Depends}
-Description: Google Compute Engine Python 3.x library
+Description: Python library for Google Compute Engine interaction (Python 3)
  Python 3.x library used to setup and manage resources in Google Compute Engine
  guests machines in a cloud environment such as accounts, clock skew, disk
  expand, instance setup, network and metadata scripts.
@@ -67,30 +68,44 @@ Depends: libnss-cache-oslogin2,
          libpam-google-compute-engine-oslogin,
          ${misc:Depends},
          ${shlibs:Depends}
-Description: OS login scripts for Google Compute Engine authentication
+Description: OS Login guest environment for Google Compute Engine
  Contains applications and configurations for using OS Login on Google Compute
  Engine Virtual Machine Instances.
+ .
+ It is composed by:
+  * Authorized Keys Command to fetch SSH keys from the user's OS Login profile
+    and make them available to sshd.
+  * NSS Module to provide support for making OS Login user and group
+    information available to the system, using NSS (Name Service Switch)
+    functionality.
+  * PAM Module to provide authorization and authentication support allowing
+    the system to use data stored in Google Cloud IAM permissions to control
+    both, the ability to log into an instance, and to perform operations as
+    root (sudo).
 
 Package: libnss-cache-oslogin2
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: NSS cache library for Google Compute Engine
- Contains libraries, applications and configurations for using OS Login
- on Google Compute Engine Virtual Machine Instances cache library.
+Description: NSS cache module for Google Compute Engine
+ It provides cache support for making OS Login user and group information
+ available to the system in Google Compute Engine environment, using NSS (Name
+ Service Switch) functionality.
 
 Package: libnss-oslogin2
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: NSS library for Google Compute Engine
- Contains libraries, applications and configurations for using OS Login
- on Google Compute Engine Virtual Machine Instances library.
+Description: NSS module for Google Compute Engine
+ It provides support for making OS Login user and group information available
+ to the system in Google Compute Engine environment, using NSS (Name Service
+ Switch) functionality.
 
 Package: libpam-google-compute-engine-oslogin
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: PAM module for Google Compute Engine authentication
- Contains libraries, applications and configurations for using OS Login
- on Google Compute Engine Virtual Machine Instances pam library.
+Description: PAM module for Google Compute Engine
+ It provides authorization and authentication support allowing the system to
+ use data stored in Google Cloud IAM permissions to control both, the ability
+ to log into an instance, and to perform operations as root (sudo).
