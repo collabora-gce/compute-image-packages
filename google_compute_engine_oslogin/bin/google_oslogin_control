@@ -150,7 +150,13 @@ modify_pam_sshd() (
   session_end=$(${sed} -n '/^session/=' "${pam_config}" | tail -1)
   ${sed} -i "${session_end}a ${added_config}" "${pam_config}"
 
-  # TODO: SLES, FreeBSD, others?
+  if is_freebsd; then
+    ${sed} -ri 's#(account)\s+\[.+\]\s+(pam_oslogin_login.so)#\1\t requisite\t\2#' "${pam_config}"
+    ${sed} -ri 's#(account)\s+\[.+\]\s+(pam_oslogin_admin.so)#\1\t optional\t\2#' "${pam_config}"
+    ${sed} -ri 's#(session)\s+\[.+\]\s+(pam_mkhomedir.so)#\1\t optional\t\2#' "${pam_config}"
+  fi
+
+  # TODO: SLES, others?
 )
 
 restart_service() {
